@@ -1,0 +1,12 @@
+-multiple new lines
+-bzeroing the rest
+-better setting of zeroes
+
+situations it doesnt work for:
+-multiple new lines
+-file ending with newline
+
+situations it works for:
+-"simple lines"
+-"1 new line"
+-
