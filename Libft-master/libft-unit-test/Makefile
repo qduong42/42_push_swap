@@ -6,7 +6,7 @@
 #    By: qduong <qduong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2021/08/18 15:55:22 by qduong           ###   ########.fr        #
+#    Updated: 2021/10/23 19:53:06 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #################
 
 #	Libft Makefile path
-LIBFTDIR	=	../Libft-master
+LIBFTDIR	=	..
 
 #	Sources
 SRCDIR		=	./

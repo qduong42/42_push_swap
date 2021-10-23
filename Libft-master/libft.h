@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qduong <qduong@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 22:56:47 by qduong            #+#    #+#             */
-/*   Updated: 2021/06/11 23:28:27 by qduong           ###   ########.fr       */
+/*   Updated: 2021/10/23 20:52:57 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ char	*ft_strrchr(const char *s, int c);
 
 void	*ft_calloc(size_t nmemb, size_t size);
 
-void	ft_putnbr_fd(int n, int fd);
+int		ft_putnbr_fd(int n, int fd);
 
 void	ft_putchar_fd(char c, int fd);
 

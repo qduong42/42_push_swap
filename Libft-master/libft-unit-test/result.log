@@ -114,7 +114,7 @@ Test code:
 
 Diffs:
     lstclear: |0x0|
- ft_lstclear: |0x7f8a4af04220|
+ ft_lstclear: |0x7ff7d8e04220|
 
 [no crash]: your lstclear does not free the list
 Test code:
