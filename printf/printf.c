@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
+/*   By: qduong <qduong@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/11 15:50:34 by qduong            #+#    #+#             */
-/*   Updated: 2021/10/23 14:05:23 by qduong           ###   ########.fr       */
+/*   Updated: 2021/10/24 21:52:01 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include <unistd.h>
 #include <string.h>
-// #include <string.h>
 // #include <stdio.h>
 
 int	write_character(char c)
@@ -40,17 +39,39 @@ int write_string(char *str)
 	return(i);
 }
 
-int write_pointer(void *ptr)
+int write_pointer(unsigned long ptr)
 {
-	unsigned char *p;
-	p = (unsigned char *)ptr;
-	unsigned long i;
-	i = strlen(p);
-	while (*p)
+	int i;
+	i = 2;
+	write(1, "0x", 2);
+	i = i + convert_hexa_lowercase(ptr);
+	return(i);
+}
+int	convert_hexa_lowercase(unsigned long n)
+{
+	int i;
+	i = 0;
+	if (n >= 16)
 	{
-		write(1, p, i);	
+		i = convert_hexa_lowercase((n / 16));
+		convert_hexa_lowercase((n % 16));
 	}
-	return(0);
+	if (n <= 9)
+	{
+		write(1,'0' + n, 1);
+	}
+		
+	if (n >= 10 && n < 16)
+	{
+		write(1, 'a' - 10 + n, 1);
+	}
+	i++;
+	return(i);
+}
+
+int	write_double(double i)
+{
+	
 }
 
 int conversion(va_list args, char format)
@@ -60,11 +81,9 @@ int conversion(va_list args, char format)
 		if (format == 's')
 			return(write_string(va_arg(args, char *)));
 		if (format == 'p')
-			return(write_pointer(va_arg(args, void *)));
-		// if (format == 'd')
-		// 	return(write_double((va_arg(args, double)));
-		// if (format == 'i')
-		// 	return(write_int(va_arg(args, int));
+			return(write_pointer(va_arg(args, unsigned long)));
+		if (format == 'd' || format == 'i')
+		return(write_double((va_arg(args, int)));
 		// if (format == 'x')
 		// 	return(write_low_hexa(va_arg(args, unsigned int));
 		// if (format == 'X')
