@@ -1,0 +1,73 @@
+What?
+To initiate a school newspaper to cover the different events, student opinion columns, fun sections that are 42 related etc.
+-Duration: As long as 42 is in operation to covering events, news, emotions, feelings from students perspective.
+
+Mission: 
+-To foster community and interpersonal relationships and understanding by showcasing specific aspects of 42 Projects, individual perspective through interviews with students, as well as the human aspect behind the students.
+-To give students a central platform to write about their experiences, thoughts throughout the curriculum. This could be used later by them to showcase on their LinkedIn to show potential employers about their involvement in school projects, possibly also related to their future field.
+
+
+Goals:
+-To encourage the community to participate and contribute to coverage of the respective events that are happening, few current examples are: Ecosystem Group, Fab lab projects, current Scholarship projects as well as Incubator etc. A possible motivation for them could be future exposure to companies and participating in this could be used on their linked in to showcase their perspective on project x,y,z
+-To entice people to come on site, to participate in (some) on-site projects such as the Fab Lab Arduino project, the ecosystem/+ ft_alpha project about autonomous driving, by making the projects come alive through text descriptions
+possible collaboration in this point with Valentin and John on the Humans of 42 project, to have animated versions of the stories, which could be accessible for example through a QR-Code link in the newspaper.
+-To reveal the human aspects behind the current students at 42, possible angles are interviews about x,y,z, interviews with people who for example got 1st achievement of x,y,z. Extracurricular aspects of hobbies(paintings, music, etc)
+-to lighten the mood and promote fun things, that have possible connection to 42 or otherwise. A „Satire“ section if you will. 
+Possible current ideas are: 
+-„coding puzzles“ from 42 projects with non-working code and say: What is missing here? Or spot the norm error! Possible small prizes for correct first (few) responses.
+-Opinion/Experience columns (anonymous or otherwise)
+-Piotr’s journal (he has agreed to contribute when the newspaper becomes reality)
+-Donation section(?) of things that you dont need 
+-showcase 42 memes.
+-achievement leaderboard.
+
+
+-1st Vision Sections:
+-(Official) events students coverage
+-(Official) scholarship projects coverage
+-Student engagement (fun) events coverage
+-Satire section: Piotr’s Journal
+-Joke of the month (or account of funniest things happening on site)
+-Coding puzzles(42 projects related)
+-42 memes showcase?
+-Peer to Peer section:
+-42 donations/bazaar(things they dont need and want to donate/trade in 42 community)
+-Opinions column
+-Anonymous sections(?) Contents to be brainstormed/determined.
+
+How?
+Visme templates? Other templates?
+-google sites(?)
+-Notion based?
+-mural.ly for outlines?
+-trello/gantter for roadmap/collab/progress/to-do tracking? Ganter paid while Trello is free.
+web whiteboard?
+(anonymous) suggestions/feedback?
+
+Longterm projection and possible technology link:
+
+-42Intra API, possibility to show which articles has been read or not. 
+-Catalogue of all past articles searchable by title/etc
+-Quizes and small contests results and score
+-possible integration with achievements
+-possible Quiz integration on discord.
+-anonymous sections? -have to be moderated for content of course
+-Suggestion sections with possible up/downvote system(discord bot implementation?)
+-alumni section for those who (eventually) pass core or advanced curriculum.
+
+Projection:
+8.9.21 -22.9.21 Prepare Scholarship application. Project description and Motivation
+22.9.21-30.9.21 Pilot article
+1.10.21-8.10.21 Finalizing Scholarship application.
+9.10.21 Submission
+October-November- Interest gathering from current students + possibly first brainstorming session for article ideas. Decentralized idea platform where anyone can send ideas which being thoroughly involved with the project -i.e any student can send in suggestions which go into a suggestion box.
+
+Time after commence of scholarship project:
+2 Weeks after scholarship commence-> Decide on layout, and articles to be covered distributed between members.
+3 weeks -> First draft of articles and peer review (suggestions/comments)
+1 month -> Second/final draft-> finalizing the articles
+1.25 months -> Organizing the given articles and assigning the articles onto the newspaper.
+1.5 months weeks -> finalization and publication.
+Review of suggestions/feedback 7 weeks.
+
+The first publication projection will take 6 weeks, but the idea is to have around 4 weeks between publications, which means a monthly issue. For important and pressing/spontaneous articles, especially time sensitive ones, there may be a possibility of having articles posted between the 1 month timeframes.
