@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qduong <qduong@student.42wolfsburg.de>     +#+  +:+       +#+        */
+/*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 09:53:37 by qduong            #+#    #+#             */
-/*   Updated: 2021/06/09 11:09:00 by qduong           ###   ########.fr       */
+/*   Updated: 2021/11/23 20:02:47 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static	size_t	digits(long x)
 static	char	*convert(long n, char *str, int numdigits, int neg)
 {
 	str[numdigits + neg] = '\0';
-	while (numdigits > 0 )
+	while (numdigits > 0)
 	{
 		if (neg)
 		{
