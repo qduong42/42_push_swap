@@ -1,0 +1,14 @@
+1. read = Ann --> store somewhere else on heap?
+2. read = a\nT --> stop reading --> return Anna\n
+3.read = im\n\n
+4. read = \nDa
+
+buffer_size=3
+
+int read(fd, buf, buffer_size) --return of read is number of bytes read
+
+read -->return 3
+EOF = end of file is interpreted by return of 0 from read
+read return -1 if there is an error
+
+*buf--> point to 0

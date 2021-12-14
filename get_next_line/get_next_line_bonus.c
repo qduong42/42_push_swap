@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 16:21:30 by qduong            #+#    #+#             */
-/*   Updated: 2021/11/25 17:41:52 by qduong           ###   ########.fr       */
+/*   Created: 2021/09/29 16:21:09 by qduong            #+#    #+#             */
+/*   Updated: 2021/09/29 16:22:42 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
-
+#include "get_next_line_bonus.h"
 
 static void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -70,45 +68,28 @@ static char	*freeme(int bytes_read, char *returnline)
 
 char	*get_next_line(int fd)
 {
-	static char	buf[BUFFER_SIZE + 1];
+	static char	buf[MAX_FD][BUFFER_SIZE + 1];
 	char		*returnline;
-	char		*temp;
 	int			bytes_read;
 
-	returnline = ft_calloc(1, sizeof(char));
-	temp = "";
-	while (!ft_strrchr(buf, '\n'))
+	if (fd < 0 || fd > MAX_FD || BUFFER_SIZE < 1)
+		return (NULL);
+	returnline = ft_calloc(1, sizeof(*returnline));
+	while (!ft_strrchr(buf[fd], '\n'))
 	{
-		if (*buf)
-		{
-			returnline = ft_bufjoin(returnline, buf);
-		}
-		bytes_read = read(fd, buf, BUFFER_SIZE);
-		buf[bytes_read] = '\0';
+		if (*buf[fd])
+			returnline = ft_bufjoin(returnline, buf[fd]);
+		bytes_read = read(fd, buf[fd], BUFFER_SIZE);
+		buf[fd][bytes_read] = '\0';
 		returnline = freeme(bytes_read, returnline);
-		if (bytes_read < BUFFER_SIZE && !ft_strrchr(buf, '\n'))
+		if (bytes_read < BUFFER_SIZE && !ft_strrchr(buf[fd], '\n'))
 		{
-			returnline = ft_bufjoin(returnline, buf);
+			returnline = ft_bufjoin(returnline, buf[fd]);
 			return (returnline);
 		}
 	}
-	returnline = ft_bufnchecksplit(returnline, buf);
+	returnline = ft_bufnchecksplit(returnline, buf[fd]);
 	return (returnline);
 }
 //accounting for case where buf contains \n
 //52-62 put in sub-function by passing buf and returnline
-
-int main (void)
-{
-    int fd;
-    fd = 0;
-    char *str;
-	str = "";
-    while (str)
-    {
-        str = get_next_line(fd);  
-        printf("%s", str);
-    }
-    close(fd);
-    return (0);
-}

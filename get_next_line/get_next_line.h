@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/06 13:55:10 by qduong            #+#    #+#             */
-/*   Updated: 2021/09/29 17:41:50 by qduong           ###   ########.fr       */
+/*   Updated: 2021/09/02 15:00:35 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ size_t	ft_strlen(const char *s);
 int		ft_strrchr(const char *s, int c);
 char	*get_next_line(int fd);
 
-// # ifndef BUFFER_SIZE
-// #  define BUFFER_SIZE 8
-// # endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 8
+# endif
 
 # define MAX_FD 1024
 

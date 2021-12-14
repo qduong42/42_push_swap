@@ -1,0 +1,3 @@
+[submodule "minitalk/Libft"]
+	path = minitalk/Libft
+	url = https://github.com/qduong42/Libft.git

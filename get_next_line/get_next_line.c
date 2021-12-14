@@ -6,13 +6,11 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 16:21:30 by qduong            #+#    #+#             */
-/*   Updated: 2021/11/25 17:41:52 by qduong           ###   ########.fr       */
+/*   Updated: 2021/09/29 16:21:32 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-
 
 static void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -97,18 +95,3 @@ char	*get_next_line(int fd)
 }
 //accounting for case where buf contains \n
 //52-62 put in sub-function by passing buf and returnline
-
-int main (void)
-{
-    int fd;
-    fd = 0;
-    char *str;
-	str = "";
-    while (str)
-    {
-        str = get_next_line(fd);  
-        printf("%s", str);
-    }
-    close(fd);
-    return (0);
-}
