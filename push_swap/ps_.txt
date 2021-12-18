@@ -1,0 +1,26 @@
+Error handling:
+
+1. handle non-int --> Error
+2. check if already sorted or only 1 number--> return 0
+3. handle argc > 2
+4. check for duplicates
+5. check for -max int
+
+
+write, read, malloc, free, exit
+
+atoi
+
+print to stderr--> Error + \n
+
+1. implement instructions 
+sa
+sb
+pa
+pb
+ra
+rb
+rr
+rra
+rrb
+rrr

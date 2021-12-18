@@ -1,15 +1,19 @@
 #include "push_swap.h"
+#include <unistd.h>
 
-int	error_handling	(int argc, char**argv)
+int	check_digit	(int argc, char**argv)
 {
-	if (argc == 2)
-		return(0);
-	return(0);
+
 }
 
+int	put_error()
+{
+	write(STDERR_FILENO, "Error\n", 6);
+	return (-1);
+}
 
 int main(int argc, char **argv)
 {
-	error_handling(argc, argv);
-return (0);
+if(!check_digit)
+	return (put_error());
 }
