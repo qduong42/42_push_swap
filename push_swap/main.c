@@ -6,21 +6,156 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:16:54 by qduong            #+#    #+#             */
-/*   Updated: 2022/01/07 15:37:44 by qduong           ###   ########.fr       */
+/*   Updated: 2022/01/19 18:05:59 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-//return 0 if error, return 1 if normal in general
+//creates stack a
+
+void	ft_createstack(char **argv, pst_list** stack)
+{
+	pst_list	*tmp;
+	size_t		i;
+
+	i = 0;
+	while (argv[i])
+	{
+		tmp = ft_lstnew(ft_atoll(argv[i]), 0);
+		ft_lstadd_back(stack, tmp);
+		i ++;
+	}
+}
+
+/*return 0 if error, return 1 if normal in general
+**numbers = argc -1 = numbers of number inputs
+**2 loops ==> outer loop loops through all numbers
+**sorts 1 number then 2 then 3 then 4 then 5 then 6 then numbers */
+
+int	*ft_index_sort(int *array, int numbers)
+{
+	int	current_number_of_values;
+	int	times;
+	int	temp;
+
+	times = 0;
+	current_number_of_values = 0;
+	while (current_number_of_values <= numbers)
+	{
+		times = current_number_of_values - 1;
+			while (times > 0)
+			{
+				if (array[times] < array[times - 1])
+				{
+					temp = array[times];
+					array[times] = array[times - 1];
+					array[times - 1] = temp;
+				}
+				times--;
+			}
+		current_number_of_values++;
+	}
+	return (array);
+}
+
+/*	Debugging array in function create rank
+	//i = 0;
+	// while (argc - 1)
+	// {
+	// printf("%d\n", array[i]);
+	// i++;
+	// argc--;
+	// }
+*/
+
+int	*ft_createrank(int argc, char **argv)
+{
+	int	*array;
+	array = ft_calloc(1, sizeof(int) * argc - 1);
+	int	i;
+
+	i = -1;
+	while(++i != argc - 1)
+		array[i] = ft_atoll(argv[i]);
+	ft_index_sort(&array[0], argc - 1);
+	return (array);
+}
+
+void	ft_assign_rank_to_stacka(int max_index, int *array, pst_list **stacka)
+{
+	int	i;
+
+	i = 0;
+	pst_list *current;
+	current = *stacka;
+	while(current->next != NULL)
+	{
+		i = 0;
+		while (i < max_index)
+		{
+		if (current->value == array[i])
+		{
+			current->rank = i;
+		}
+		current = current->next;
+		i++;
+		}
+	}
+}
+
+void	two(pst_list **stacka)
+{
+	pst_list *current;
+	current = *stacka;
+	current->previous = current->next;
+	current->next = NULL;
+	current = current->previous->next;
+	current->previous->previous = NULL;
+}
 
 int	ft_push_swap(int argc, char **argv)
 {
-	t_list **stack a;
-	t_list **stack b;
-	return 1;
+	pst_list **stacka;
+	pst_list **stackb;
+	int *array;
+
+	stacka = ft_calloc(1, sizeof(pst_list*));
+	stackb = ft_calloc(1, sizeof(pst_list*));
+	if (!stacka || !stackb)
+		return(0);
+	ft_createstack(argv, stacka);
+	array = ft_createrank(argc, argv);
+	ft_assign_rank_to_stacka(argc - 2, array, stacka);
+	pst_list *current;
+	current = *stacka;
+	if (argc == 3)
+	{
+		two(stacka);
+	}
+	while(current->next!= NULL)
+	{
+	printf("After: %d\t", current->value);
+	current = current->next;
+	}
+	printf("After: %d\t", current->value);
+	return (1);
 }
+
+// void	swap_a(pst_list **stacka)
+// {
+// 	pst_list *first;
+// 	pst_list *second;
+// 	first = *stacka;
+// 	second = *stacka;
+// 	second = second->next;
+// 	first->next = second->next;
+// 	second = first->previous;
+// 	second->next->previous = first;
+// 	second->next = first;
+// 	second->previous = NULL;
+// }
 
 int main(int argc, char **argv)
 {
@@ -32,6 +167,8 @@ int main(int argc, char **argv)
 		return(ft_put_error());
 	if(!check_duplicates(argv))
 		return(ft_put_error());
+	if(check_sorted(argc, argv))
+		return(0);
 	if(!ft_push_swap(argc, &argv[1]))
 		return(ft_put_error());
 	return(0);

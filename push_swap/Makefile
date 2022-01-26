@@ -1,6 +1,6 @@
 CFLAGS = -Wall -Wextra -Werror
 NAME = push_swap
-SRCS = main.c
+SRCS = main.c check.c list_utils.c
 OBJS = ${SRCS:.c=.o} #makes *.o from *.c
 RM = rm -f
 CC = gcc
@@ -8,7 +8,7 @@ CC = gcc
 all: $(NAME)
 
 $(NAME): ${OBJS}
-	$(CC) -g $(OBJS) libft-master/libft.a -o $(NAME)
+	$(CC) -g $(OBJS) libft/libft.a -o $(NAME)
 
 clean:
 	${RM} ${OBJS} $(BONUS_OBJS)
