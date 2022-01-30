@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:16:54 by qduong            #+#    #+#             */
-/*   Updated: 2022/01/19 18:05:59 by qduong           ###   ########.fr       */
+/*   Updated: 2022/01/30 17:30:31 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,15 +104,36 @@ void	ft_assign_rank_to_stacka(int max_index, int *array, pst_list **stacka)
 		}
 	}
 }
-
-void	two(pst_list **stacka)
+// if ((*stacka)->next->next) denotes more than 2 numbers -> argc = 3;
+void	ra(pst_list **stacka)
 {
-	pst_list *current;
-	current = *stacka;
-	current->previous = current->next;
-	current->next = NULL;
-	current = current->previous->next;
-	current->previous->previous = NULL;
+	pst_list *temp;
+	
+	if ((*stacka)-> next == 0 || !stacka)
+		return ;
+	temp = (*stacka)->next;
+	if ((*stacka)->next->next)
+	{
+		(*stacka)->next = (*stacka)->next->next;
+		(*stacka)->previous = temp;
+		temp->next = (*stacka);
+		temp->previous = NULL;
+		(*stacka) = temp;
+	}
+	else
+	{
+		(*stacka)->next = NULL;
+		(*stacka)->previous = temp;
+		temp->next = (*stacka);
+		temp->previous = NULL;
+		(*stacka) = temp;
+	}
+	write(1, "ra\n", 3);
+}
+
+void	sa(pst_list **stacka)
+{
+	
 }
 
 int	ft_push_swap(int argc, char **argv)
@@ -130,10 +151,18 @@ int	ft_push_swap(int argc, char **argv)
 	ft_assign_rank_to_stacka(argc - 2, array, stacka);
 	pst_list *current;
 	current = *stacka;
+	while(current->next!= NULL)
+	{
+	printf("Before: %d\t", current->value);
+	current = current->next;
+	}
+	printf("Before: %d\t", current->value);
 	if (argc == 3)
 	{
-		two(stacka);
+		pa(stacka);
 	}
+	pa(stacka);
+	current = *stacka;
 	while(current->next!= NULL)
 	{
 	printf("After: %d\t", current->value);
