@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:16:54 by qduong            #+#    #+#             */
-/*   Updated: 2022/01/30 17:30:31 by qduong           ###   ########.fr       */
+/*   Updated: 2022/01/31 18:48:41 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,35 +105,48 @@ void	ft_assign_rank_to_stacka(int max_index, int *array, pst_list **stacka)
 	}
 }
 // if ((*stacka)->next->next) denotes more than 2 numbers -> argc = 3;
-void	ra(pst_list **stacka)
+void	swap(pst_list **stack , char i)
 {
 	pst_list *temp;
 	
-	if ((*stacka)-> next == 0 || !stacka)
+	if ((*stack)-> next == 0 || !stack)
 		return ;
-	temp = (*stacka)->next;
-	if ((*stacka)->next->next)
-	{
-		(*stacka)->next = (*stacka)->next->next;
-		(*stacka)->previous = temp;
-		temp->next = (*stacka);
-		temp->previous = NULL;
-		(*stacka) = temp;
-	}
+	temp = (*stack)->next;
+	if ((*stack)->next->next)
+		(*stack)->next = (*stack)->next->next;
 	else
-	{
-		(*stacka)->next = NULL;
-		(*stacka)->previous = temp;
-		temp->next = (*stacka);
-		temp->previous = NULL;
-		(*stacka) = temp;
-	}
-	write(1, "ra\n", 3);
+		(*stack)->next = NULL;
+	(*stack)->previous = temp;
+	temp->next = (*stack);
+	temp->previous = NULL;
+	(*stack) = temp;
+	if (i == 'a')
+	write(1, "sa\n", 3);
+	else
+	write(1, "sb\n", 3);
 }
 
-void	sa(pst_list **stacka)
+void	rotate(pst_list **stack, char i)
 {
+	pst_list *last;
+	last = ft_lstlast(*stack);
+	//printf("Last prev add:%p\t", last->previous);
+	//printf("Last add:%p\t", last);
+	if (last->previous == (*stack)->next)
+	{
+	(*stack)->previous = (*stack)->next;
+	last->previous->next = (*stack);
+	(*stack)->next = NULL;
+	(*stack) = last;
+	last->previous->previous = (*stack);
+	last->next = last->previous;
+	last->previous = NULL;
+	}
 	
+	if (i == 'a')
+	write(1, "ra\n", 3);
+	else
+	write(1, "rb\n", 3);
 }
 
 int	ft_push_swap(int argc, char **argv)
@@ -159,9 +172,12 @@ int	ft_push_swap(int argc, char **argv)
 	printf("Before: %d\t", current->value);
 	if (argc == 3)
 	{
-		pa(stacka);
+		swap(stacka, 'a');
 	}
-	pa(stacka);
+	//if (argc == 4)
+	//{
+		rotate(stacka, 'a');
+	//}
 	current = *stacka;
 	while(current->next!= NULL)
 	{

@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:13:49 by qduong            #+#    #+#             */
-/*   Updated: 2022/01/12 15:13:53 by qduong           ###   ########.fr       */
+/*   Updated: 2022/01/31 13:15:16 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,18 @@ pst_list	*ft_lstnew(int value, int rank)
 
 pst_list	*ft_lstlast(pst_list *lst)
 {
+	pst_list	*first;
 	pst_list	*last;
 
 	if (!lst)
 		return (NULL);
+	first = lst;
 	while (lst)
 	{
 		last = lst;
 		lst = lst->next;
 	}
+	lst = first;
 	return (last);
 }
 
