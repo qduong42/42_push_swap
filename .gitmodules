@@ -1,3 +1,6 @@
 [submodule "minitalk/Libft"]
 	path = minitalk/Libft
 	url = https://github.com/qduong42/Libft.git
+[submodule "push_swap/libft"]
+	path = push_swap/libft
+	url = https://github.com/qduong42/Libft.git
