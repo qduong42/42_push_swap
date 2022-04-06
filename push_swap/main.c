@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:16:54 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/05 22:57:12 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/06 13:19:47 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 	// current = current->next;
 	// printf("B After: %p\t", current);
 
-void	ft_createstack(char **argv, pst_list** stack)
+void		ft_createstack(char **argv, pst_list** stack)
 {
 	pst_list	*tmp;
 	size_t		i;
@@ -57,7 +57,7 @@ void	ft_createstack(char **argv, pst_list** stack)
 **2 loops ==> outer loop loops through all numbers
 **sorts 1 number then 2 then 3 then 4 then 5 then 6 then numbers */
 
-int	*ft_index_sort(int *array, int numbers)
+int			*ft_index_sort(int *array, int numbers)
 {
 	int	current_number_of_values;
 	int	times;
@@ -93,7 +93,7 @@ int	*ft_index_sort(int *array, int numbers)
 	// }
 */
 
-int	*ft_createrank(int argc, char **argv)
+int			*ft_createrank(int argc, char **argv)
 {
 	int	*array;
 	array = ft_calloc(1, sizeof(int) * argc - 1);
@@ -106,7 +106,7 @@ int	*ft_createrank(int argc, char **argv)
 	return (array);
 }
 
-void	ft_assign_rank_to_stacka(int max_index, int *array, pst_list **stacka)
+void		ft_assign_rank_to_stacka(int max_index, int *array, pst_list **stacka)
 {
 	int	i;
 
@@ -128,7 +128,7 @@ void	ft_assign_rank_to_stacka(int max_index, int *array, pst_list **stacka)
 	}
 }
 // if ((*stacka)->next->next) denotes more than 2 numbers -> argc = 3;
-void	swap(pst_list **stack , char i)
+void		swap(pst_list **stack , char i)
 {
 	pst_list *temp;
 	
@@ -151,7 +151,7 @@ void	swap(pst_list **stack , char i)
 
 //sets temp as top of stack
 
-void	rotate(pst_list **stack, char i)
+void		rotate(pst_list **stack, char i)
 {
 	pst_list *last;
 	pst_list *temp;
@@ -171,7 +171,7 @@ void	rotate(pst_list **stack, char i)
 		return ;
 }
 
-void	r_rotate(pst_list **stack, char i)
+void		r_rotate(pst_list **stack, char i)
 {
 	pst_list *last;
 	pst_list *temp;
@@ -190,14 +190,14 @@ void	r_rotate(pst_list **stack, char i)
 		return ;
 }
 
-void	rrr(pst_list **stacka, pst_list **stackb)
+void		rrr(pst_list **stacka, pst_list **stackb)
 {
 	r_rotate(stacka, 'c');
 	r_rotate(stackb, 'c');
-	write(1, "rr\n", 3);
+	write(1, "rrr\n", 3);
 	return;
 }
-void	rr(pst_list **stacka, pst_list **stackb)
+void		rr(pst_list **stacka, pst_list **stackb)
 {
 	rotate(stacka, 'c');
 	rotate(stackb, 'c');
@@ -205,7 +205,7 @@ void	rr(pst_list **stacka, pst_list **stackb)
 	return;
 }
 
-int	push(pst_list **stacka, pst_list **stackb, char a)
+int			push(pst_list **stacka, pst_list **stackb, char a)
 {
 	int i;
 	i = ft_lstsize(*stackb);
@@ -232,7 +232,7 @@ int	push(pst_list **stacka, pst_list **stackb, char a)
 	return (1);
 }
 
-void	sort4(pst_list **stacka, pst_list **stackb)
+void		sort4(pst_list **stacka, pst_list **stackb)
 {
 	if ((*stacka)->value == 1)
 	{
@@ -243,7 +243,7 @@ void	sort4(pst_list **stacka, pst_list **stackb)
 	return;
 }
 
-int	ft_push_swap(int argc, char **argv)
+int			ft_push_swap(int argc, char **argv)
 {
 	pst_list **stacka;
 	pst_list **stackb;
@@ -256,8 +256,39 @@ int	ft_push_swap(int argc, char **argv)
 	ft_createstack(argv, stacka);
 	array = ft_createrank(argc, argv);
 	ft_assign_rank_to_stacka(argc - 2, array, stacka);
-	if (argc == 4)
-		sort4(stacka, stackb);
+	// if (argc == 4)
+	// 	sort4(stacka, stackb);
+	pst_list *current;
+	current = *stacka;
+	while(current->next!= NULL)
+	{
+	printf("A Before: %d\t", current->value);
+	current = current->next;
+	}
+	printf("A Before: %d\t", current->value);
+	printf("A before: %p\t", current->next);
+	current = *stackb;
+	printf("B Before: %p\t", current);
+	push(stacka, stackb, 'b');
+	push(stacka, stackb, 'b');
+	push(stacka, stackb, 'b');
+	rrr(stacka, stackb);
+	current = *stacka;
+	while(current->next!= NULL)
+	{
+	printf("A After: %d\t", current->value);
+	current = current->next;
+	}
+	printf("A After: %d\t", current->value);
+	printf("A After: %p\t", current->next);
+	current = *stackb;
+	while(current->next!= NULL)
+	{
+	printf("B After: %d\t", current->value);
+	current = current->next;
+	}
+	printf("B After: %d\t", current->value);
+	printf("B After: %p\t", current->next);
 	return (1);
 }
 
@@ -276,7 +307,7 @@ int	ft_push_swap(int argc, char **argv)
 // 	second->previous = NULL;
 // }
 
-int main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	if (argc < 2)
 		return(0);
