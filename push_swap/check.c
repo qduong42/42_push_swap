@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:36:57 by qduong            #+#    #+#             */
-/*   Updated: 2022/01/12 16:30:32 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/06 17:44:34 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,22 @@ int	check_sorted(int argc, char ** argv)
 			argc--;
 			i++;
 		}
+		else
+			return (0);
+	}
+	return (1);
+}
+
+int	check_sorted_stack(pst_list **stacka)
+{
+	pst_list	*current;
+	current = *stacka;
+	while(current->next != NULL)
+	{
+		if ((current->next) == NULL)
+			return (1);
+		if (current->value < current->next->value)
+			current = current->next;
 		else
 			return (0);
 	}
