@@ -17,11 +17,11 @@ pst_list	*ft_lstnew(int value, int rank);
 
 pst_list	*ft_lstlast(pst_list *lst);
 
+int			ft_lstsize(pst_list *lst);
+
 void		ft_lstadd_back(pst_list **lst, pst_list *new);
 
 void		ft_lstclear(pst_list **lst);
-
-int			ft_lstsize(t_list *lst);
 
 int			check_digit	(char **argv);
 

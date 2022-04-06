@@ -6,14 +6,37 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:16:54 by qduong            #+#    #+#             */
-/*   Updated: 2022/01/31 18:48:41 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/05 22:57:12 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-//creates stack a
+//creates stack a, init top and bottom
+	// pst_list *current;
+	// current = *stacka;
+	// while(current->next!= NULL)
+	// {
+	// printf("A Before: %d\t", current->value);
+	// current = current->next;
+	// }
+	// printf("A Before: %d\t", current->value);
+	// current = *stackb;
+	// printf("B Before: %p\t", current);
+	// current = *stacka;
+	// while(current->next!= NULL)
+	// {
+	// printf("A After: %d\t", current->value);
+	// current = current->next;
+	// }
+	// printf("A After: %d\t", current->value);
+	// current = *stackb;
+	// printf("B After: %d\t", current->value);
+	// current = current->next;
+	// printf("B After: %d\t", current->value);
+	// current = current->next;
+	// printf("B After: %p\t", current);
 
 void	ft_createstack(char **argv, pst_list** stack)
 {
@@ -126,27 +149,98 @@ void	swap(pst_list **stack , char i)
 	write(1, "sb\n", 3);
 }
 
+//sets temp as top of stack
+
 void	rotate(pst_list **stack, char i)
 {
 	pst_list *last;
+	pst_list *temp;
+
+	temp = (*stack);
 	last = ft_lstlast(*stack);
-	//printf("Last prev add:%p\t", last->previous);
-	//printf("Last add:%p\t", last);
-	if (last->previous == (*stack)->next)
-	{
-	(*stack)->previous = (*stack)->next;
-	last->previous->next = (*stack);
-	(*stack)->next = NULL;
-	(*stack) = last;
-	last->previous->previous = (*stack);
-	last->next = last->previous;
-	last->previous = NULL;
-	}
-	
+	(*stack)->next->previous = NULL;
+	(*stack) = (*stack)->next;
+	last->next = temp;
+	temp->previous = last;
+	temp->next = NULL;
 	if (i == 'a')
-	write(1, "ra\n", 3);
+		write(1, "ra\n", 3);
+	else if (i == 'b')
+		write(1, "rb\n", 3);
 	else
-	write(1, "rb\n", 3);
+		return ;
+}
+
+void	r_rotate(pst_list **stack, char i)
+{
+	pst_list *last;
+	pst_list *temp;
+	temp = (*stack);
+	last = ft_lstlast(*stack);
+	last->previous->next = NULL;
+	last->previous = NULL;
+	last->next = (*stack);
+	(*stack)->previous = last;
+	(*stack) = last;
+	if (i == 'a')
+		write(1, "rra\n", 4);
+	else if (i == 'b')
+		write(1, "rrb\n", 4);
+	else
+		return ;
+}
+
+void	rrr(pst_list **stacka, pst_list **stackb)
+{
+	r_rotate(stacka, 'c');
+	r_rotate(stackb, 'c');
+	write(1, "rr\n", 3);
+	return;
+}
+void	rr(pst_list **stacka, pst_list **stackb)
+{
+	rotate(stacka, 'c');
+	rotate(stackb, 'c');
+	write(1, "rr\n", 3);
+	return;
+}
+
+int	push(pst_list **stacka, pst_list **stackb, char a)
+{
+	int i;
+	i = ft_lstsize(*stackb);
+	if (i == 0)
+	{
+		(*stacka) = (*stacka)->next;
+		*stackb = (*stacka)->previous;
+		(*stacka)->previous = NULL;
+		(*stackb)->previous = NULL;
+		(*stackb)->next = NULL;
+	}
+	else
+	{
+		(*stacka) = (*stacka)->next;
+		(*stackb)->previous = (*stacka)->previous;
+		(*stacka)->previous->next = (*stackb);
+		(*stacka)->previous = NULL;
+		(*stackb) = (*stackb)->previous;
+	}
+	if (a == 'a')
+		write(1, "pa\n", 3);
+	else if (a == 'b')
+		write(1, "pb\n", 3);
+	return (1);
+}
+
+void	sort4(pst_list **stacka, pst_list **stackb)
+{
+	if ((*stacka)->value == 1)
+	{
+		push(stacka, stackb, 'b');
+		swap(stacka, 'a');
+		push(stackb, stacka, 'a');
+	}
+	return;
 }
 
 int	ft_push_swap(int argc, char **argv)
@@ -162,33 +256,13 @@ int	ft_push_swap(int argc, char **argv)
 	ft_createstack(argv, stacka);
 	array = ft_createrank(argc, argv);
 	ft_assign_rank_to_stacka(argc - 2, array, stacka);
-	pst_list *current;
-	current = *stacka;
-	while(current->next!= NULL)
-	{
-	printf("Before: %d\t", current->value);
-	current = current->next;
-	}
-	printf("Before: %d\t", current->value);
-	if (argc == 3)
-	{
-		swap(stacka, 'a');
-	}
-	//if (argc == 4)
-	//{
-		rotate(stacka, 'a');
-	//}
-	current = *stacka;
-	while(current->next!= NULL)
-	{
-	printf("After: %d\t", current->value);
-	current = current->next;
-	}
-	printf("After: %d\t", current->value);
+	if (argc == 4)
+		sort4(stacka, stackb);
 	return (1);
 }
 
-// void	swap_a(pst_list **stacka)
+// only works for argc == 4 
+//void	swap_a(pst_list **stacka)
 // {
 // 	pst_list *first;
 // 	pst_list *second;

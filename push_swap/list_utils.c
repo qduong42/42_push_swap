@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:13:49 by qduong            #+#    #+#             */
-/*   Updated: 2022/01/31 13:15:16 by qduong           ###   ########.fr       */
+/*   Updated: 2022/02/01 20:43:22 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_lstadd_back(pst_list **lst, pst_list *new)
 	}
 }
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(pst_list *lst)
 {
 	int	len;
 
