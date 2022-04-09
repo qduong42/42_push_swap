@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:36:57 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/06 17:44:34 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/09 17:32:33 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-int	check_digit	(char **argv)
+int	check_digit(char **argv)
 {
 	int i;
 	int y;
@@ -61,7 +61,9 @@ int	check_int(char **argv)
 	return(1);
 }
 
-int check_duplicates(char **argv)
+//parsing inputs and check for duplicates
+
+int	check_duplicates(char **argv)
 {
 	int i;
 	int y;
@@ -99,7 +101,7 @@ int	check_sorted(int argc, char ** argv)
 	return (1);
 }
 
-int	check_sorted_stack(pst_list **stacka)
+int	check_stack_if_sorted(pst_list **stacka)
 {
 	pst_list	*current;
 	current = *stacka;

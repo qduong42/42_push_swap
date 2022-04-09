@@ -31,4 +31,26 @@ int			check_duplicates(char **argv);
 
 int			check_sorted(int argc, char ** argv);
 
+int			check_stack_if_sorted(pst_list **stacka);
+
+void		swap(pst_list **stack, char i);
+
+void		rotate(pst_list **stack, char i);
+
+void		r_rotate(pst_list **stack, char i);
+
+void		rrr(pst_list **stacka, pst_list **stackb);
+
+void		rr(pst_list **stacka, pst_list **stackb);
+
+int			push(pst_list **stacka, pst_list **stackb, char a);
+
+void		sort3(pst_list **stack);
+
+void		sort5(pst_list **stacka, pst_list **stackb);
+
+void		sort4(pst_list **stacka, pst_list **stackb);
+
+void		push_specific(pst_list **stacka, pst_list **stackb, int rank);
+
 #endif
