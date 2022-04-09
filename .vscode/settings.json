@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"get_next_line.h": "c",
-		"algorithm": "cpp",
-		"cstdarg": "cpp",
-		"cstdio": "cpp",
-		"cwchar": "cpp"
-	}
-}
