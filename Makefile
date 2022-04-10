@@ -17,6 +17,7 @@ clean:
 
 fclean: clean
 	${RM} $(NAME)
+	$(RM) libft/libft.a
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:13:49 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/09 23:38:32 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/10 13:03:26 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	ft_lstclear(t_st_list **lst)
 			free(current);
 			current = following;
 		}
+		free(current);
 		*lst = NULL;
 	}
 	return ;

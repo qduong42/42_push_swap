@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:16:54 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/09 23:41:09 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/10 13:00:10 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ void	ft_createrank(int argc, char **argv, t_st_list **stacka)
 		(current)->rank = i;
 		(current) = (current)->next;
 	}
+	free(array);
 	return ;
 }
 
@@ -151,6 +152,8 @@ int	ft_push_swap(int argc, char **argv)
 		return (0);
 	ft_createstack(argv, stacka);
 	ft_createrank(argc, argv, stacka);
+	if (argc == 3)
+		swap(stacka, 'a');
 	if (argc == 4)
 		sort3(stacka);
 	else if (argc == 5)
@@ -159,6 +162,9 @@ int	ft_push_swap(int argc, char **argv)
 		sort5(stacka, stackb);
 	else if (argc >= 6)
 		radix(stacka, stackb);
+	ft_lstclear(stacka);
+	free(stackb);
+	free(stacka);
 	return (1);
 }
 
