@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 13:35:15 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/09 23:31:42 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/10 09:54:36 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ void	rotate(t_st_list **stack, char i)
 void	r_rotate(t_st_list **stack, char i)
 {
 	t_st_list	*last;
-	t_st_list	*temp;
+	t_st_list	*temp; //apparently not used
 
-	temp = (*stack);
+	temp = (*stack); // apparently not used
 	last = ft_lstlast(*stack);
 	last->previous->next = NULL;
 	last->previous = NULL;
