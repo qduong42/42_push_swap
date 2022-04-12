@@ -14,6 +14,7 @@ $(NAME): ${OBJS}
 clean:
 	${RM} ${OBJS} $(BONUS_OBJS)
 	$(RM) libft/*.o
+	rm -rf push_swap.dSYM
 
 fclean: clean
 	${RM} $(NAME)
