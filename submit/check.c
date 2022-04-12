@@ -6,16 +6,14 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 14:36:57 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/10 00:34:56 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:54:42 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 //loops through each input and check if 
 //each digit in each number input is numeric
-
-#include "push_swap.h"
-#include <stdio.h>
-
 int	check_digit(char **argv)
 {
 	int	i;
@@ -64,7 +62,6 @@ int	check_int(char **argv)
 }
 
 //parsing inputs and check for duplicates
-
 int	check_duplicates(char **argv)
 {
 	int	i;

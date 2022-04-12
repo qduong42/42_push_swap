@@ -6,15 +6,15 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 13:35:15 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/10 09:54:36 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:55:21 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-// if ((*stack1)->next->next) denotes more than 2 numbers -> argc = 3;
-
+/*
+if ((*stack1)->next->next) denotes more than 2 numbers -> argc = 3;
+*/
 void	swap(t_st_list **stack, char i)
 {
 	t_st_list	*temp;
@@ -37,7 +37,6 @@ void	swap(t_st_list **stack, char i)
 }
 
 //sets temp as top of stack
-
 void	rotate(t_st_list **stack, char i)
 {
 	t_st_list	*last;
@@ -61,9 +60,7 @@ void	rotate(t_st_list **stack, char i)
 void	r_rotate(t_st_list **stack, char i)
 {
 	t_st_list	*last;
-	t_st_list	*temp; //apparently not used
 
-	temp = (*stack); // apparently not used
 	last = ft_lstlast(*stack);
 	last->previous->next = NULL;
 	last->previous = NULL;

@@ -6,11 +6,10 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 18:59:11 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/09 23:27:03 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:37:54 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
 
 // printf("Sort 3 Done!\n"); on line 31-32 to test

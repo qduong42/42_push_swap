@@ -6,16 +6,17 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 00:01:54 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/05 16:46:52 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:36:35 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* Function character to integer, check and skips first occurences of** 
-**isspaces. Then check if first character is negative or positive, to**
-**multiply with final result*/
-
+/*
+Function character to integer, check and skips first occurences of** 
+isspaces. Then check if first character is negative or positive, to**
+multiply with final result
+*/
 long long	ft_atoll(const char *str)
 {
 	int			i;

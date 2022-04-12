@@ -6,13 +6,16 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 23:41:13 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/09 23:41:58 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:38:57 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//500 = 111110100
+/*
+Gets max bit length according to biggest binary digits place
+for maximum 
+*/
 
 static int	get_bit_length(t_st_list **stacka)
 {

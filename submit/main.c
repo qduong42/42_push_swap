@@ -6,14 +6,13 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 13:16:54 by qduong            #+#    #+#             */
-/*   Updated: 2022/04/10 13:00:10 by qduong           ###   ########.fr       */
+/*   Updated: 2022/04/12 10:48:57 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-//creates stack a, init top and bottom
+//creates stack a, init top and bottom, to test stacks
 	// t_st_list *current;
 	// current = *stacka;
 	// while(current->next!= NULL)
@@ -46,21 +45,6 @@
 	// printf("B After: %d\t", current->value);
 	// printf("B After: %p\t", current->next);
 
-// only works for argc == 4 
-	//void	swap_a(t_st_list **stacka)
-	// {
-	// 	t_st_list *first;
-	// 	t_st_list *second;
-	// 	first = *stacka;
-	// 	second = *stacka;
-	// 	second = second->next;
-	// 	first->next = second->next;
-	// 	second = first->previous;
-	// 	second->next->previous = first;
-	// 	second->next = first;
-	// 	second->previous = NULL;
-	// }
-
 void	ft_createstack(char **argv, t_st_list **stack)
 {
 	t_st_list	*tmp;
@@ -76,10 +60,12 @@ void	ft_createstack(char **argv, t_st_list **stack)
 	return ;
 }
 
-/*return 0 if error, return 1 if normal in general
-**numbers = argc -1 = numbers of number inputs
-**2 loops ==> outer loop loops through all numbers
-**sorts 1 number then 2 then 3 then 4 then 5 then 6 then numbers */
+/*
+return 0 if error, return 1 if normal in general
+numbers = argc -1 = numbers of number inputs
+2 loops ==> outer loop loops through all numbers
+sorts 1 number then 2 then 3 then 4 then 5 then 6 then numbers 
+*/
 
 int	*ft_index_sort(int *array, int numbers)
 {
@@ -170,7 +156,7 @@ int	ft_push_swap(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	if (argc < 2)
+	if (argc <= 2)
 		return (0);
 	if (!check_digit(argv))
 		return (ft_put_error());
